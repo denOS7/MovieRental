@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure.MappingViews;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MovieRental.ViewModels;
 
 namespace MovieRental.Controllers
 {
@@ -15,7 +16,7 @@ namespace MovieRental.Controllers
 
         public MoviesController()
         {
-            _context= new ApplicationDbContext();
+            _context = new ApplicationDbContext();
         }
 
         protected override void Dispose(bool disposing)
@@ -28,6 +29,18 @@ namespace MovieRental.Controllers
             var movies = _context.Movies.Include(c => c.Genre).ToList();
 
             return View(movies);
+        }
+
+        public ActionResult New()
+        {
+            var genres = _context.Genres.ToList();
+
+            MovieFormViewModel viewModel = new MovieFormViewModel
+            {
+                Genres = genres
+            };
+
+            return View("MovieForm", viewModel);
         }
 
         public ActionResult Details(int id)

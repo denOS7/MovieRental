@@ -15,7 +15,7 @@ namespace MovieRental.Controllers
 
         public CustomersController()
         {
-            _context= new ApplicationDbContext();
+            _context = new ApplicationDbContext();
         }
 
         protected override void Dispose(bool disposing)
