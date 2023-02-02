@@ -6,6 +6,7 @@
 }
 
 <h2>Movies</h2>
+<h3>@Html.ActionLink("New Movie", "New", "Movies")</h3>
 
 <table class="table table-bordered table-hover">
     <thead>
@@ -18,7 +19,7 @@
         @foreach(var movie in Model)
         { 
             <tr>
-                <td>@Html.ActionLink(movie.Name, "Details", "Movies", new {id = movie.Id}, null)</td>
+                <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new {id = movie.Id}, null)</td>
                 <td>@movie.Genre.Name</td>
             </tr>
         }
