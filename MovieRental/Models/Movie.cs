@@ -20,6 +20,7 @@ namespace MovieRental.Models
         public DateTime DateAdded { get; set; }
 
         [Required]
+        [Min1NumberInStock]
         [Display(Name = "Number In Stock")]
         public int NumberInStock { get; set; }
 
